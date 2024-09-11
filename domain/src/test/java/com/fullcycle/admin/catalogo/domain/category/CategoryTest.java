@@ -20,6 +20,6 @@ public class CategoryTest {
         Assertions.assertTrue(actualCategory.isActive());
         Assertions.assertNotNull(actualCategory.getCreatedAt());
         Assertions.assertNotNull(actualCategory.getUpdatedAt());
-        Assertions.assertNotNull(actualCategory.getDeletedAt());
+        Assertions.assertNull(actualCategory.getDeletedAt());
     }
 }
