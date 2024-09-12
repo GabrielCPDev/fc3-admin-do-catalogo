@@ -1,10 +1,11 @@
 package com.fullcycle.admin.catalogo.domain.category;
 
-import java.time.Instant;
-import java.util.UUID;
+import com.fullcycle.admin.catalogo.domain.AggregateRoot;
 
-public class Category {
-    private String id;
+import java.time.Instant;
+
+public class Category extends AggregateRoot<CategoryID> {
+
     private String name;
     private String description;
     private Boolean isActive;
@@ -13,23 +14,23 @@ public class Category {
     private Instant deletedAt;
 
     private Category(
-            final String id,
-            final String expectedName,
-            final String expectedDescription,
-            final Boolean expectedIsActive,
-            final Instant createdAt,
-            final Instant updatedAt,
-            final Instant deletedAt) {
-        this.id = id;
-        this.name = expectedName;
-        this.description = expectedDescription;
-        this.isActive = expectedIsActive;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-        this.deletedAt = deletedAt;
+            final CategoryID anId,
+            final String aName,
+            final String aDescription,
+            final Boolean isActive,
+            final Instant aCreationDate,
+            final Instant aUpdateDate,
+            final Instant aDeleteDate) {
+        super(anId);
+        this.name = aName;
+        this.description = aDescription;
+        this.isActive = isActive;
+        this.createdAt = aCreationDate;
+        this.updatedAt = aUpdateDate;
+        this.deletedAt = aDeleteDate;
     }
 
-    public String getId() {
+    public CategoryID getId() {
         return id;
     }
 
@@ -61,9 +62,10 @@ public class Category {
             final String aName,
             final String aDescription,
             final boolean isActive) {
-        final var id = UUID.randomUUID().toString();
+        final var id = CategoryID.unique();
         final var now = Instant.now();
-        return new Category(id,
+        return new Category(
+                id,
                 aName,
                 aDescription,
                 isActive,
