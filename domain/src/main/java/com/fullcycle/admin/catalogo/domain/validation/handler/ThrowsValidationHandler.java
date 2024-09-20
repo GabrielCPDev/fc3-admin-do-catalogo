@@ -19,9 +19,9 @@ public class ThrowsValidationHandler implements ValidationHandler {
     }
 
     @Override
-    public ValidationHandler validate(final Validation aValidatioon) {
+    public ValidationHandler validate(final Validation aValidation) {
         try {
-            aValidatioon.Validate();
+            aValidation.Validate();
         } catch (final DomainException ex) {
             throw DomainException.with(List.of(new Error(ex.getMessage())));
         }
