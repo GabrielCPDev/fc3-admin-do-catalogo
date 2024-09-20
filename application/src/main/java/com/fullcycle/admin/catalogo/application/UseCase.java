@@ -1,9 +1,6 @@
 package com.fullcycle.admin.catalogo.application;
 
+public abstract class UseCase<IN, OUT> {
 
-public class UseCase {
-
-    public void execute() {
-        System.out.printf("execute");
-    }
+    public abstract OUT execute(IN anIn);
 }
