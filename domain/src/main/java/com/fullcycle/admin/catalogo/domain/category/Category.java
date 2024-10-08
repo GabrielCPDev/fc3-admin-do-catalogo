@@ -112,7 +112,7 @@ public class Category extends AggregateRoot<CategoryID> implements Cloneable {
         );
     }
 
-    public static Category clone(final Category aCategory) {
+    public static Category with(final Category aCategory) {
         return aCategory.clone();
     }
 
