@@ -1,7 +1,5 @@
-package com.fullcycle.admin.catalogo.application.category.retrieve;
+package com.fullcycle.admin.catalogo.application.category.retrieve.get;
 
-import com.fullcycle.admin.catalogo.application.category.retrieve.get.CategoryOutput;
-import com.fullcycle.admin.catalogo.application.category.retrieve.get.DefaultGetCategoryByIdUseCase;
 import com.fullcycle.admin.catalogo.domain.category.Category;
 import com.fullcycle.admin.catalogo.domain.category.CategoryGateway;
 import com.fullcycle.admin.catalogo.domain.category.CategoryID;
