@@ -102,7 +102,7 @@ public class Category extends AggregateRoot<CategoryID> implements Cloneable {
         final var id = CategoryID.unique();
         final var now = Instant.now();
         final var deletedAt = isActive ? null : now;
-        return new Category(
+        return with(
                 id,
                 aName,
                 aDescription,
@@ -114,6 +114,24 @@ public class Category extends AggregateRoot<CategoryID> implements Cloneable {
 
     public static Category with(final Category aCategory) {
         return aCategory.clone();
+    }
+
+    public static Category with(
+            final CategoryID anId,
+            final String aName,
+            final String aDescription,
+            final boolean isActive,
+            final Instant createdAt,
+            final Instant updatedAt,
+            final Instant deletedAt) {
+        return new Category(
+                anId,
+                aName,
+                aDescription,
+                isActive,
+                createdAt, updatedAt, deletedAt
+
+        );
     }
 
     @Override
